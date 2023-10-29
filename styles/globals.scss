@@ -1,0 +1,510 @@
+@use 'variables' as *;
+@import url('https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp');
+
+* { 
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu,
+  Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+html,
+body {
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu,
+  Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-size: 16px;
+  margin: 0;
+  height: 100%;
+}
+
+body {
+  transition-duration: 0.4s;
+  color: $background-gray;
+}
+
+body.dark {
+  background-color: $background-gray;
+  color: white;
+  background-color: #1A1A1A;
+}
+
+nav {
+  background-color: #262626;
+}
+
+.flex-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.site-column {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  background-color: darkblue;
+  flex-grow: 1;
+  flex-basis: 0;
+}
+
+.main-column {
+  background-color: #1A1A1A;
+}
+
+.left-column {
+  display: flex;
+  background-color: #333333;
+  text-align: left;
+  min-height: 30em;
+  max-width: 13em;
+}
+
+.left-link {
+  display: flex;
+  flex-wrap: wrap;
+  font-family: 'Verdana';
+  font-weight: bolder;
+  line-height: 2em;
+  transition-duration: .3s;
+}
+
+.left-link:hover {
+  background-color: #0499B0;
+  text-decoration: none;
+}
+
+.left-link-selected {
+  background-color: #0499B0;
+}
+
+a {
+  color: unset;
+  text-decoration: unset;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.logo {
+  color: #02ADC7;
+  transition-duration: .2s;
+  font-size: 2em;
+  font-family: 'Avenir Next';
+  font-weight: 700;
+}
+
+.logo:hover {
+  color: #00cbea;
+  text-decoration: none;
+}
+
+h1 {
+  transition-duration: 0.4s;
+  color: $darkest-gray;
+}
+
+.dark h1 {
+  color: $lightest-gray;
+}
+
+a.inline {
+  text-decoration: none;
+  color: $darker-green;
+}
+
+a.inline:hover {
+  text-decoration: underline;
+  color: $dark-green;
+}
+
+.dark a.inline {
+  color: $dark-green;
+}
+
+.dark a.inline:hover {
+  color: $green;
+}
+
+input {
+  display: block;
+  border-radius: .2em;
+  font-size: 16px;
+  border: 1px solid #919191;
+  color: black;
+  padding: .5em .3em;
+  transition-duration: 0.4s;
+  width: 200px;
+}
+
+.dark input {
+  background-color: #1A1A1A;
+  color: white;
+}
+
+.flex-wrapped {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+// nav {
+//   // display: flex;
+//   // flex-wrap: wrap;
+//   // align-items: center;
+//   // height: 3.5em;
+//   // margin-bottom: .4em;
+//   // background-color: #003265;
+// }
+
+.row-break {
+  flex-basis: 100%;
+}
+
+.row-break-no-mobile {
+  flex-basis: 100%;
+  height: 14em;
+}
+
+.lds-ellipsis {
+  display: inline-block;
+  position: relative;
+  width: 40px;  // doesn't matter
+  height: 40px; // doesn't matter
+}
+.lds-ellipsis div {
+  position: absolute;
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
+  background: #fff;
+  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+.lds-ellipsis div:nth-child(1) {
+  left: 8px; // starting pos
+  animation: lds-ellipsis1 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(2) {
+  left: 8px; // starting pos
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(3) {
+  left: 78px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(4) {
+  left: 148px;
+  animation: lds-ellipsis3 0.6s infinite;
+}
+@keyframes lds-ellipsis1 {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes lds-ellipsis3 {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+@keyframes lds-ellipsis2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(70px, 0);
+  }
+}
+
+/*
+ * =============================
+ * --------- BUTTON ------------
+ * =============================
+ */
+
+ // Reset all the default styling
+ button, input[type="submit"], input[type="reset"] {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
+/*
+ * =============================
+ * --------- BUTTON ------------
+ * =============================
+ */
+
+// Basic Button
+
+.loader {
+  display: inline-block;
+  border: .2em solid $darkest-gray;
+  border-top: .2em solid $white-gray;
+  border-radius: 50%;
+  width: 1.2em;
+  height: 1.2em;
+  animation: spin 1s linear infinite;
+  transition: border-color .2s;
+}
+
+.dark .loader {
+  border: .2em solid $division-gray;
+  border-top: .2em solid white;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.icon {
+  line-height: unset;
+  font-size: 1.3em;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0 2em;
+  height: 2.5em;
+  border-radius: 8px;
+
+  font-weight: bold;
+  color: #ffffff;
+  text-decoration: none;
+
+  background-color: $button-enabled-light;
+  transition-duration: .2s;
+
+  .icon {
+		font-size: 1.25em;
+	}
+
+  .loader {
+    border: .2em solid $darkest-gray;
+    border-top: .2em solid $white;
+  }
+
+  &:hover {
+    background-color: $button-hover-light;
+  }
+  
+  &:active {
+    background-color: $button-active-light;
+    transition-duration: 0.0s;
+  }  
+
+  &.button-primary {
+    background-color: $button-primary-enabled-light;
+
+    .loader {
+      border: .2em solid $darkest-green;
+      border-top: .2em solid $white-gray;
+    }
+  
+    &:hover {
+      background-color: $button-primary-hover-light;
+    }
+    
+    &:active {
+      background-color: $button-primary-active-light;
+    }
+  }
+
+  &.button-image {
+    aspect-ratio: 1 / 1;
+    padding: .2em;
+
+    & .icon {
+      font-size: 2.0em;
+    }
+  }
+
+  &:disabled,&[disabled] {
+    background-color: $button-primary-disabled-light;
+    cursor: not-allowed;
+
+    &:hover {
+      background-color: $button-primary-disabled-light;
+    }
+
+    .loader {
+      border: .2em solid $gray;
+      border-top: .2em solid $white-gray;
+    }
+  }
+}
+
+// Dark
+// Basic Button
+
+.dark .button {
+  background-color: $button-enabled-dark;
+
+  .loader {
+    border: .2em solid $division-gray;
+    border-top: .2em solid $lighter-gray;
+  }
+
+  &:hover {
+    background-color: $button-hover-dark;
+  }
+
+  &:active {
+    background-color: $button-active-dark;
+    transition-duration: 0.0s;
+  }
+
+  &.button-primary {
+    background-color: $button-primary-enabled-dark;
+
+    &:hover {
+      background-color: $button-primary-hover-dark;
+    }
+    
+    &:active {
+      background-color: $button-primary-active-dark;
+    }
+  }
+
+  &:disabled,&[disabled] {
+    background-color: $button-primary-disabled-dark;
+    color: $dark-gray;
+
+    &:hover {
+      background-color: $button-primary-disabled-dark;
+    }
+
+    .loader {
+      border: .2em solid $division-gray;
+      border-top: .2em solid $lighter-gray;
+    }
+  }
+}
+
+/*
+ * =============================
+ * --------- Headers -------
+ * =============================
+ */
+
+.center-header {
+  font-family: Avenir;
+  font-weight: 100;
+  font-size: 4em;
+  line-height: 1.3em;
+  text-align: center;
+}
+
+.center-header2 {
+  font-family: Avenir;
+  font-weight: 100;
+  font-size: 2em;
+  line-height: 1em;
+  color: $dark-gray;
+}
+
+
+ /*
+ * =============================
+ * --------- FORM BOX ----------
+ * =============================
+ */
+
+.form-box {
+  display: flex;
+  flex-wrap: wrap;
+
+  width: 50%;
+  margin: 0 auto;
+  padding: 2em 5em;
+  border-radius: 12px;
+  transition-duration: 0.4s;
+  background-color: $white-gray;
+  column-gap: .8em;
+  border: 1.5px solid $light-gray;
+
+  & h1 {
+    width: 100%; 
+    text-align: center;
+    transition-duration: 0.4s;
+  }
+
+  & .textBox {
+    // width: 100%; 
+    text-align: center;
+    transition-duration: 0.4s;
+    flex-grow: 1;
+    // margin: .8em 0;
+  }
+
+  & .button {
+    flex-grow: 1;
+  }
+}
+
+.dark .form-box {
+  background-color: $division-gray;
+  border: 1.5px solid $darkest-gray;
+}
+
+@media screen and (max-width: 1200px) {
+  .content {
+    transition: width .2s;
+    width: 95%;
+    margin: 0 auto;
+  }
+
+  .form-box {
+    transition: width .2s;
+    transition: background-color .4s;
+    width: 70%;
+  }
+
+  .form-box {
+    transition: width .2s;
+    transition: background-color .4s;
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .content {
+    width: 93%;
+  }
+
+  .form-box {
+    transition: width .2s;
+    transition: background-color .4s;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .form-box {
+    transition: width .2s;
+    transition: background-color .4s;
+    width: 100%;
+    margin: 0 auto;
+    padding: 1.5em 2em;
+  }
+
+  nav {
+    margin-bottom: .1em;
+  }
+
+  .row-break-no-mobile {
+    height: 2em;
+  }
+}

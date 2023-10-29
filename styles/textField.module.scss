@@ -1,0 +1,71 @@
+@use 'variables' as *;
+
+.headerText {
+  font-size: .8em;
+  // font-size: 1em;
+  // font-weight: bold;
+  margin-bottom: .3em;
+  margin-left: .1em;
+  transition-duration: .2s;
+  position: relative;
+  top: 0;
+}
+
+.labelText {
+  display: inline-flex;
+  color: $darkest-gray;
+  // background-color: blue;
+}
+
+:global(.dark) .labelText {
+  color: $lightest-gray;
+}
+
+.errorText {
+  display: inline-flex;
+  color: $red;
+  margin-left: auto;
+  // background-color: green;
+  text-align: right;
+  // width: 2px;
+  // height: 2px;
+  // background-color: red;
+}
+
+:global(.dark) .errorText {
+  color: $light-red;
+}
+
+.textBox {
+  border-color: $dark-gray;
+  width: 100%;
+}
+
+:global(.dark) .textBox {
+  border-color: $light-gray;
+}
+
+.textBoxError {
+  border-color: $red;
+}
+s
+.textBoxError {
+  border-color: $light-red;
+}
+
+.headerTextHidden {
+  top: .6em;
+  opacity: 0%;
+  // width: 1px;
+  // height: 1em;
+}
+
+.helpText {
+  font-size: .8em;
+  color: $darkest-gray;
+  margin-left: .1em;
+}
+
+:global(.dark) .helpText {
+  color: $light-gray;
+}

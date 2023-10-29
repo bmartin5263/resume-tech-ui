@@ -1,0 +1,63 @@
+.banner {
+  display: block;
+  width: 100%;
+  line-height: 3em;
+  text-align: center;
+  font-family: Avenir;
+  transition-duration: 0.3s;
+  min-height: 3em;
+  margin-bottom: 1em;
+
+  &.hidden {
+    min-height: 0;
+    margin-bottom: 0;
+  }
+
+  &.info {
+    background-color: #CCE5FF;
+    color: #004C99;
+  }
+
+  &.success {
+    background-color: #ccffda;
+    color: #006d04;
+  }
+
+  &.warn {
+    background-color: #FFECBC;
+    color: #856110;
+  }
+
+  &.error {
+    background-color: #FFCCCC;
+    color: #660000;
+  }
+}
+
+:global(.dark) .banner {
+  &.info {
+    background-color: #003265;
+    color: #8dc4ff;
+  }
+
+  &.error {
+    background-color: #660000;
+    color: #ffacac;
+  }
+
+  &.warn {
+    background-color: #978312;
+    color: #FFECBC;
+  }
+
+  &.success {
+    background-color: #004802;
+    color: #ccffda;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .banner {
+    margin-top: 1em;
+  }
+}

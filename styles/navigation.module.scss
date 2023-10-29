@@ -1,0 +1,172 @@
+@use 'variables' as *;
+
+#toggleDarkModeButton {
+  height: 2.5em;
+  width: 2.5em;
+
+  color: #ffffff;
+  padding: .3em;
+  margin-left: 1em;
+}
+
+#loginButton {
+  margin-left: auto;
+}
+
+#signOutButton {
+  margin-left: auto;
+}
+
+#registerButton {
+  margin-left: 1em;
+}
+
+.link {
+  color: #808080;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  
+  border-radius: 8px;
+  padding: .6em 1.3em;
+  
+  transition: background-color .2s;
+  transition: color .2s;
+
+  margin-left: 1em;
+  // margin-top: .8em;
+  // margin-bottom: .5em;
+
+  // background-color: red;
+}
+
+.link:hover {
+  border-radius: 0;
+  border-bottom: 3px solid $primary-light;
+  margin-bottom: -.2em;
+}
+
+.link:active {
+  transition: background-color 0;
+  color: $primary-light;
+  background-color: rgba(0,0,0,0);
+}
+
+:global(.dark) .link {
+  color: $lightest-gray;
+}
+
+:global(.dark) .link:hover {
+  border-color: $primary-hover-dark;
+}
+
+:global(.dark) .link:active {
+  color: $primary-light;
+  background-color: rgba(0,0,0,0);
+}
+
+.activePage {
+  color: #ffffff;
+  background-color: $primary-light;
+  transition: background-color .2s;
+}
+
+.activePage:hover {
+  background-color: $primary-hover-light;
+  border-radius: 8px;
+  border: 0;
+  color: #FFFFFF;
+  margin-bottom: 0em;
+}
+
+:global(.dark) .activePage {
+  color: #ffffff;
+  background-color: $darkest-green;
+  transition-duration: 0.2s;
+}
+
+:global(.dark) .activePage:hover {
+  background-color: $darker-green;
+}
+
+.logo {
+  // background-color: darkred;
+  font-family: Verdana, sans-serif;
+  font-weight: bold;
+  font-size: 3em;
+  color: $primary-light;
+
+  transition-duration: 0.2s;
+  
+  padding: 0;
+  margin-left: -.1em;
+  margin-top: -.3em;
+  margin-bottom: -.3em;
+}
+
+.logo:link {
+  text-decoration: none;
+}
+
+.logo:visited {
+  text-decoration: none;
+}
+
+.logo:hover {
+  text-decoration: none;
+  border: none;
+  color: $primary-hover-light;
+}
+
+.logo:active {
+  text-decoration: none;
+}
+
+:global(.dark) .logo {
+  font-family: Verdana, sans-serif;
+  font-weight: bold;
+  color: $primary-dark;
+}
+
+:global(.dark) .logo:link {
+  text-decoration: none;
+}
+
+:global(.dark) .logo:visited {
+  text-decoration: none;
+}
+
+:global(.dark) .logo:hover {
+  text-decoration: none;
+  border: none;
+  color: $primary-hover-dark;
+}
+
+:global(.dark) .logo:active {
+  text-decoration: none;
+}
+
+@media screen and (max-width: 700px) {
+  .link {
+    padding: .5em .8em;
+  }
+
+  #loginButton {
+    height: 2.2em;
+    padding: 0 1em;
+  }
+
+  #registerButton {
+    display: none;
+    height: 2.2em;
+    padding: 0 1em;
+  }
+
+  #toggleDarkModeButton {
+    display: none;
+  }
+
+  .logo {
+    font-size: 2em;
+  }
+}

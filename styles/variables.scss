@@ -1,0 +1,75 @@
+/*
+* Basic Colors
+*/
+
+$white: #ffffff;
+$white-gray: #f7f7f7;
+$lightest-gray: #E6E6E6;
+$lighter-gray: #E0E0E0;
+$light-gray: #B3B3B3;
+$gray: #999999;
+$dark-gray: #808080;
+$darker-gray: #666666;
+$darkest-gray: #444444;
+$division-gray: #262626;
+$background-gray: #1A1A1A;
+
+$lighter-green: #2fffb3;
+$light-green: #10E697;
+$green: #0ECF88;
+$dark-green: #0DBA7A;
+$darker-green: #0B9C66;
+$darkest-green: #08784E;
+
+$light-red: #FF6666;
+$red: #d42121;
+
+// Primary Colors
+
+$normal-light: $gray;
+$normal-hover-light: $light-gray;
+$normal-active-light: $dark-gray;
+$normal-disabled-light: $lighter-gray;
+
+$normal-dark: $dark-gray;
+$normal-hover-dark: $gray;
+$normal-active-dark: $darker-gray;
+$normal-disabled-dark: $darkest-gray;
+
+$primary-light: $green;
+$primary-hover-light: $light-green;
+$primary-active-light: $dark-green;
+
+$primary-dark: $darker-green;
+$primary-hover-dark: $dark-green;
+$primary-active-dark: $darkest-green;
+
+$primary-dark: $darker-green;
+
+/*
+ * Button Colors
+ */
+
+// Basic Light
+$button-enabled-light: $normal-light;
+$button-hover-light: $normal-hover-light;
+$button-active-light: $normal-active-light;
+$button-disabled-light: $normal-disabled-light;
+
+// Primary Light
+$button-primary-enabled-light: $primary-light;
+$button-primary-hover-light: $primary-hover-light;
+$button-primary-active-light: $primary-active-light;
+$button-primary-disabled-light: $normal-disabled-light;
+
+// Basic Dark
+$button-enabled-dark: $normal-dark;
+$button-hover-dark: $normal-hover-dark;
+$button-active-dark: $normal-active-dark;
+$button-disabled-dark: $normal-disabled-dark;
+
+// Primary Dark
+$button-primary-enabled-dark: $primary-dark;
+$button-primary-hover-dark: $primary-hover-dark;
+$button-primary-active-dark: $primary-active-dark;
+$button-primary-disabled-dark: $normal-disabled-dark;
