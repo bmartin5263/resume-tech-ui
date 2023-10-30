@@ -1,30 +1,32 @@
-type IconProps = {
-  id: string,
-  className: string, 
-  style: React.CSSProperties,
-  children: React.ReactNode,
-  name: string,
-  right: boolean,
-  left: boolean
+export class IconType {
+  css: string;
+
+
+  static NORMAL = new IconType("material-icons")
+  static OUTLINED = new IconType("material-icons-outlined")
+
+  constructor(css: string) {
+    this.css = css
+  }
 }
 
-function Icon({id, className, style, children, name, right, left}: IconProps) {
-  const classes = ["icon"];
-  if (className != null) {
-    classes.push(className);
-  }
-  if (style == null) {
-    style = {}
-  }
+type IconProps = {
+  id?: string,
+  style?: React.CSSProperties,
+  children?: React.ReactNode,
+  name?: string,
+  type?: IconType
+}
 
-  if (right) {
-    style.marginLeft = '.3em';
-  }
-  if (left) {
-    style.marginRight = '.3em';
-  }
+function Icon(props: IconProps) {
+  var type = props.type ?? IconType.NORMAL;
+  var className = 'icon ' + type.css;
 
-  return <span id={id} style={style} className={classes.join(" ")}>{children != null ? children : name}</span>
+  return (
+    <span id={props.id} style={props.style} className={className}>
+      {props.children != null ? props.children : props.name}
+    </span>
+  )
 }
 
 export default Icon;

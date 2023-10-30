@@ -3,11 +3,12 @@ import Navigation from './navigation';
 import Link from 'next/link';
 import RowBreak from './rowBreak';
 import Logo from './logo';
-import Icon from './icon';
-import Btn from './btn'
-import { ReactNode } from 'react';
+import Icon, { IconType } from './icon';
+import { ReactNode, useContext, useState } from 'react';
 import { useRouter } from 'next/router';
-import LeftLink from './leftLink';
+import UserNavLink from './userNavLink';
+import UserNavMenu from './userNavMenu';
+import ThemeContext from './themeContext';
 
 export type LayoutProps = {
   children: React.ReactNode
@@ -15,7 +16,14 @@ export type LayoutProps = {
 
 export default function Layout({ children } : LayoutProps) {
   const router = useRouter();
+  const [leftNavClosed, setLeftNavClosed] = useState<boolean>(true);
+  const [educationOpen, setEducationOpen] = useState<boolean>(false);
+  const { darkMode, toggleDarkMode } = useContext(ThemeContext);
   const page = router.pathname;
+
+  const navButtonClassName = leftNavClosed ? 'toggle-user-nav-btn' : 'toggle-user-nav-btn toggle-user-nav-btn-active';
+  const educationIcon = educationOpen ? 'expand_more' : 'chevron_right';
+
   return (
     <>
       <Head>
@@ -32,55 +40,50 @@ export default function Layout({ children } : LayoutProps) {
 
       <main>
         <div className='flex-content'>
-          <nav style={{flexBasis: '100%', display: 'flex', flexWrap: 'wrap', height: '4em', alignItems: 'center', gap: '.5em'}}>
-            <button style={{display: 'flex', backgroundColor: '#444444', textAlign: 'center', alignItems: 'center', justifyContent: 'center', height: '100%', width: '4em'}}>
+          <nav className='site-nav' style={{}}>
+            <button onClick={e => setLeftNavClosed(!leftNavClosed)} className={navButtonClassName}>
               <span className='material-icons icon' style={{fontSize: '2.5em'}}>menu</span>
               {/* <span style={{}}>hello</span> */}
             </button>
             <Link href="/" className='logo'>ResumeTech</Link>
+
+            <button className='btn' onClick={toggleDarkMode}>Hello</button>
+            <button className='btn btn-primary' onClick={toggleDarkMode}>Hello</button>
+            <button className='btn btn-primary btn-icon' onClick={toggleDarkMode}><Icon name='person'/></button>
+
             <button style={{display: 'flex', marginLeft: 'auto', textAlign: 'center', alignItems: 'center', justifyContent: 'center', height: '100%', width: '4em'}}>
               <span className='material-icons icon' style={{fontSize: '3em'}}>account_circle</span>
               {/* <span style={{}}>hello</span> */}
             </button>
           </nav>
 
-          <div className='site-column left-column'>
-            <LeftLink href="/profile">
-              <span className='material-icons icon' style={{padding: '0 .3em',}}>person</span>
+          <div className='site-column user-nav' style={leftNavClosed ? {display: 'none'} : {}}>
+            <UserNavLink href="/profile" icon='person' iconType={IconType.NORMAL}>
               Profile
-            </LeftLink>
-            <LeftLink href="/jobs">
-              <span className='material-icons-outlined icon' style={{padding: '0 .3em',}}>business_center</span>
+            </UserNavLink>
+            <UserNavLink href="/jobs" icon='business_center'>
               Jobs
-            </LeftLink>
-            <LeftLink href="/education">
-              <span className='material-icons-outlined icon' style={{padding: '0 .3em',}}>expand_more</span>
-              Education
-            </LeftLink>
-            <LeftLink href="/degrees" style={{paddingLeft: '1.5em'}}>
-              <span className='material-icons-outlined icon' style={{padding: '0 .3em',}}>school</span>
-              Degrees
-            </LeftLink>
-            <LeftLink href="/certificates" style={{paddingLeft: '1.5em'}}>
-              <span className='material-icons-outlined icon' style={{padding: '0 .3em',}}>workspace_premium</span>
-              Certificates
-            </LeftLink>
-            <LeftLink href="/projects">
-              <span className='material-icons-outlined icon' style={{padding: '0 .3em',}}>construction</span>
+            </UserNavLink>
+            <UserNavMenu>
+              <UserNavLink href="/degrees" style={{paddingLeft: '1.5em'}} icon='school'>
+                Degrees
+              </UserNavLink>
+              <UserNavLink href="/certificates" style={{paddingLeft: '1.5em'}} icon='workspace_premium'>
+                Certificates
+              </UserNavLink>
+            </UserNavMenu>
+            <UserNavLink href="/projects" icon='construction'>
               Projects
-            </LeftLink>
-            <LeftLink href="/resumes">
-              <span className='material-icons-outlined icon' style={{padding: '0 .3em',}}>contact_page</span>
+            </UserNavLink>
+            <UserNavLink href="/resumes" icon='contact_page'>
               Resumes
-            </LeftLink>
-            <LeftLink href="/portfolios">
-              <span className='material-icons-outlined icon' style={{padding: '0 .3em',}}>photo_album</span>
+            </UserNavLink>
+            <UserNavLink href="/portfolios" icon='photo_album'>
               Portfolios
-            </LeftLink>
-            <LeftLink href="/websites">
-              <span className='material-icons-outlined icon' style={{padding: '0 .3em',}}>public</span>
+            </UserNavLink>
+            <UserNavLink href="/websites" icon='public'>
               Websites
-            </LeftLink>
+            </UserNavLink>
           </div>
           <div className='site-column main-column'>
             {children}

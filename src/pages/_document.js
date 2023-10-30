@@ -7,17 +7,17 @@ class MyDocument extends Document {
     if (theme == undefined || theme == null) {
       theme = 'dark';
     }
-  
+
     // const cookieList = cookies();
-  
+
     const x = {
       ...initialProps,
       // session,
       theme: theme
     };
-  
+
     return x;
-   }
+  }
  
   render() {
     return (
